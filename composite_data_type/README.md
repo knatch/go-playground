@@ -31,6 +31,37 @@ for i, v range x {
 }
 ```
 ## Slices
+A "window" of an underlying array
+Variable size, up to whole array
+
+`Pointer` -  indicates start of the slice
+
+`Length` - number of elements in the slice `len()`
+
+`Capacity` - maximum number of elements from start to end of array `cap()`
+
+```golang
+arr := [...]string{"a", "b", "c", "d", "e", "f"}
+s1 := arr[1:3]
+s2 := arr[2:5]
+
+// prints 2 6
+fmt.Printf(len(s1), cap(s1))
+```
+
+### Acessing Slices
+Writing to a slice changes underlying array
+Overlapping slices refer to the same array elements
+
+### Slice Literal
+Can be used to initialize a slice
+Creates the underlying array and creates a slice to reference it
+Slice points to the start of the array, length is capacity
+
+```golang
+// you'd put the length if it was an array
+sli := []int{1, 2, 3}
+```
 
 ## Variable Slices
 
