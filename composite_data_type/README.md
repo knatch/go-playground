@@ -62,11 +62,74 @@ Slice points to the start of the array, length is capacity
 // you'd put the length if it was an array
 sli := []int{1, 2, 3}
 ```
+### Slice functions
+make()
+append()
 
-## Variable Slices
+## Hash Table
+contains key/value pairs
+used to compute the slot for a key
 
-## Hash Tables
+| Advantages | Disadvantages |
+| ----------- | ----------- |
+| faster lokup (constant-time vs linear-time) | may contain collisions (two keys hash to same slot) |
+| arbitrary keys (not ints like slices or arrays) | |
 
-## Maps
 
-## Structs
+### Maps
+implementation of a hash table
+
+```golang
+var idMap map[string][int]
+idMap = make(map[string]int)
+
+// map literal
+idMap := map[string]int {
+    "jane": 1
+}
+```
+#### Accessing Maps
+referencing a value with [key]
+```golang
+// returns zero if key is not present
+// adds a key/value pair
+idMap["jano"] = 3
+
+// deletes
+delete(idMap, "jano")
+```
+
+#### Map functions
+```golang
+// id is value, p is presence of key (true/false)
+id, p := idMap["joe"]
+
+fmt.Println(len(idMap))
+
+Iterating
+// two values assignment with range
+for key, val := range idMap {
+    fmt.Printlmm(key, val)
+}
+```
+
+## Struct
+aggregate data type - groups together other objects of arbitrary type
+```golang
+type struct Person {
+    name string
+    addr string
+    phone string
+}
+
+var p1 Person
+// dot notation
+p1.name = "Joe"
+x = p1.addr
+
+// initialized fields to zero with new
+p1 := new(Person)
+
+// struct literal
+p2 := Person(name: "Jane", addr: "a street", phone: "3124")
+```
