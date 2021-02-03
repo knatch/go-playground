@@ -61,3 +61,30 @@ dat = "hello world"
 
 err := ioutil.WriteFile("out.txt", dat, 0777)
 ```
+
+## os Package File Access
+`os.Open` opens a file, returns a file descriptor
+
+`os.Close` closes a file
+
+`os.Read` reads from a file into []byte
+
+`os.Write` writes a []byte into file
+
+### os File Read
+```golang
+f, err := os.Open("test.txt")
+bArr := make([]byte, 10)
+nb, err := f.Read(bArr)
+f.Close()
+```
+
+### os File Write
+```golang
+f, err := os.Create("out.txt")
+
+bArr := []byte{1, 2, 3}
+nb, err := f.Write(bArr)
+// or
+nb, err := f.WriteString("Hello")
+```
