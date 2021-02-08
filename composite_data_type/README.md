@@ -116,7 +116,7 @@ for key, val := range idMap {
 ## Struct
 aggregate data type - groups together other objects of arbitrary type
 ```golang
-type struct Person {
+type Person struct {
     name string
     addr string
     phone string
